@@ -34,7 +34,9 @@ public class Light {
 	
 	public boolean[] status(){
 		boolean[] status = new boolean[3];
+		return status;
 		
+		//BLA BLAB OPASEAWKMD
 	}
 	
 }
