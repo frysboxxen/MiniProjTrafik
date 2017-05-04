@@ -1,5 +1,5 @@
 
-public class Light {
+public class Light implements Runnable{
 	private boolean green;
 	private boolean yellow;
 	private boolean red;
@@ -15,7 +15,7 @@ public class Light {
 		if(green){
 			yellow = true;
 			green = false;
-			Thread.sleep(yellowTime);
+//			Thread.sleep(yellowTime);
 			yellow = false;
 			red = true;
 		}
@@ -25,18 +25,29 @@ public class Light {
 	public boolean setGreen() throws InterruptedException{
 		if(red){
 			yellow = true;
-			Thread.sleep(yellowTime);
+//			Thread.sleep(yellowTime);
 			yellow = false;
 			green = true;
 		}
 		return true;
 	}
 	
+	public boolean isRed(){
+		return red;
+	}
+	
+	public boolean isGreen(){
+		return green;
+	}
+
 	public boolean[] status(){
-		boolean[] status = new boolean[3];
+		boolean[] status = {red, yellow, green};
 		return status;
+	}
+
+	@Override
+	public void run() {
 		
-		//BLA BLAB OPASEAWKMD
 	}
 	
 }
