@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>korsning.jpg.jpg</name>
-			<type>1</type>
-			<location>C:/Users/elisa/workspace/Trafikproject/MiniProjTrafik-master/korsning.jpg.jpg</location>
-		</link>
-	</linkedResources>
 </projectDescription>
