@@ -2,8 +2,7 @@ import java.util.Queue;
 
 public class Direction implements Runnable {
 	private Queue<Car> straight;
-	private Queue<Car> turnLeft;
-	private Queue<Car> emergency;
+	private boolean hasEmergency =false;
 	private Light light;
 
 	public Direction() {
@@ -18,19 +17,13 @@ public class Direction implements Runnable {
 				e.printStackTrace();
 			}
 		}
+		checkEmergency();
 	}
 
-	public void enqueueLeft(Car car) {
-		if (car.isEmergency()) {
-			emergency.add(car);
-		}
-		turnLeft.add(car);
-
-	}
 
 	public void enqueueStraight(Car car) {
 		if (car.isEmergency()) {
-			emergency.add(car);
+			hasEmergency = true;
 		}
 		straight.add(car);
 
@@ -38,16 +31,21 @@ public class Direction implements Runnable {
 
 	public void greenLight() throws InterruptedException {
 		straight.remove();
-		if (light.isRed()) {
-			turnLeft.remove();
-		}
-
 		Thread.sleep(1000);
 
 	}
+	
+	public void checkEmergency(){
+		hasEmergency = false;
+		while(straight.hasNext()){
+			if(straight.next.isEmergency){
+				hasEmergency =true;
+			}
+		}
+	}
 
 	public boolean getEmergencyStatus() {
-		return emergency.isEmpty();
+		return hasEmergency;
 	}
 
 }
