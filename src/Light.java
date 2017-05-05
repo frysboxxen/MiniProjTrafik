@@ -3,7 +3,7 @@ public class Light implements Runnable{
 	private boolean green;
 	private boolean yellow;
 	private boolean red;
-	private long yellowTime = 3000; // Delay time.
+//	private long yellowTime = 3000; // Delay time.
 	
 	public Light() {
 		green = false;
