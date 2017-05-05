@@ -13,6 +13,8 @@ public class Car {
 	private int delay;
 	private int x;
 	private int y;
+	private int speed;
+	
 	
 	
 	public Car(boolean isEmergency, Color carColor, int delay){
