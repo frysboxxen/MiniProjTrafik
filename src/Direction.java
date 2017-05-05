@@ -38,7 +38,7 @@ public class Direction implements Runnable {
 	public void checkEmergency(){
 		hasEmergency = false;
 		while(straight.hasNext()){
-			if(straight.nextA.isEmergency){
+			if(straight.next.isEmergency){
 				hasEmergency =true;
 			}
 		}
