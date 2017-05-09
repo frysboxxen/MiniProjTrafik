@@ -11,19 +11,16 @@ public class Car {
 	private boolean isEmergency;
 	private Color carColor;
 	private int delay;
-	double x;
-	double y;
-	int speed;
+	private int x;
+	private int y;
+	private int speed;
 	
 	
 	
-	public Car(boolean isEmergency, Color carColor, int delay, double a, double b){
+	public Car(boolean isEmergency, Color carColor, int delay){
 		this.isEmergency = isEmergency;
 		this.carColor = carColor;
 		this.delay = delay;
-		x = a;
-		y = b;
-		speed = 5;
 	}
 
 	public boolean isEmergency() {

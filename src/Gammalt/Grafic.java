@@ -18,7 +18,7 @@ public class Grafic {
 		StdDraw.picture(400, 400, "korsning.png", 800, 800);
 		
 
-		/*
+		
 		while(true){
 			run();	
 			
@@ -45,7 +45,7 @@ public class Grafic {
 			catch(InterruptedException e){
 				
 			}
-		*/
+		
 	}
 	
 }

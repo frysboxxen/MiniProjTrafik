@@ -1,6 +1,6 @@
 import java.awt.Color;
 
-public class Light implements Runnable{
+public class Light {
 	private boolean green;
 	private boolean yellow;
 	private boolean red;
@@ -8,7 +8,7 @@ public class Light implements Runnable{
 	private double yPos;
 	private Color color;
 	private long yellowTime = 3000; // Delay time.
-	private int was = 0;
+	private int was;
 	
 	public Light(double x, double y) {
 		green = false;
@@ -20,9 +20,7 @@ public class Light implements Runnable{
 		
 	}
 	
-	/*public boolean setRed() throws InterruptedException{
-
-		
+	public boolean setRed() throws InterruptedException{
 		if(green){
 			yellow = true;
 			color = new Color (255, 255, 0);
@@ -34,46 +32,46 @@ public class Light implements Runnable{
 		}
 		return true;
 		
-	}*/
-	/**
-	 * Switches between Traffic lights depending on the previous state. 
-	 */
-	public void changeColor(){
-		switch(was){
-		case 0:
-			if(isGreen()){
-				yellow = true;
-				green = false;
-				was = 1;
-				
-			}else if(isRed()){
-				yellow = true;
-				red = false;
-				was = 2;
-			}
-			color = new Color(255,255,0);
-			break;
-		case 1:
-			was = 0;
-			yellow = false;
-			red = true;
-			color = new Color(255,0,0);
-			break;
-		case 2:
-			was = 0;
-			yellow = false;
-			green = true;
-			color = new Color(0,255,0);
-			break;
-		}	
+	}
+	public void changeColor() throws InterruptedException{
 		
+		if(isRed() ){
+			was=2;
+			color = new Color(255, 255, 0);
+			yellow = true;
+			red = false;
+			return;
+		}
+		else if(isYellow()){
+			if(was == 2){
+				was = 0;
+				color = new Color(0,255,0);
+				yellow = false;
+				green = true;
+				return;
+			}
+			else if(was == 1){
+				was = 0;
+				color = new Color(255,0,0);
+				yellow = false;
+				red= true;
+				return;
+			}
+		}
+		else if(isGreen()){
+			was = 1;
+			color = new Color(255, 255, 0);
+			green = false;
+			yellow = true;
+			return;
+		}
 		
 		
 	}
 	public boolean isYellow(){
 		return yellow;
 	}
-	/*
+	
 	public boolean setGreen() throws InterruptedException{
 		if(red){
 			yellow = true;
@@ -86,7 +84,7 @@ public class Light implements Runnable{
 		}
 		return true;
 	}
-	*/
+	
 	public boolean isRed(){
 		return red;
 	}
@@ -100,6 +98,9 @@ public class Light implements Runnable{
 		return status;
 	}
 
+<<<<<<< HEAD
+	
+=======
 	@Override
 	public void run() {
 		
@@ -109,8 +110,12 @@ public class Light implements Runnable{
 		StdDraw.filledSquare(xPos, yPos, 10);
 
 		
-		
+		StdDraw.show();
 
 	}
+<<<<<<< Updated upstream
+=======
+>>>>>>> origin/master
+>>>>>>> Stashed changes
 	
 }
