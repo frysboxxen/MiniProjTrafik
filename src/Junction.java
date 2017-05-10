@@ -15,9 +15,9 @@ public class Junction {
 	}
 	private static void threadSetup(){
 		Thread northT = new Thread(north, "north");
-		Thread southT= 	new Thread(south, "south");
-		Thread westT = new Thread(west, "west");
-		Thread eastT = new Thread(east, "east");
+		Thread southT = new Thread(south, "south");
+		Thread westT  = new Thread(west,  "west");
+		Thread eastT  = new Thread(east,  "east");
 		
 		northT.start();
 		southT.start();
