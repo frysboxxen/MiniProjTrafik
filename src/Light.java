@@ -7,7 +7,7 @@ public class Light implements Runnable{
 	private double xPos;
 	private double yPos;
 	private Color color;
-	private long yellowTime = 3000; // Delay time.
+//	private long yellowTime = 3000; // Delay time.
 	private int was = 0;
 	
 	public Light(double x, double y) {

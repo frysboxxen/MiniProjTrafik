@@ -5,7 +5,7 @@ public class Direction  {
 	private ArrayQueue<Car> straight;
 	private boolean hasEmergency =false;
 	private Light light;
-	//Håller koll på vart bil vägen är för denna riktningen, 
+	//Hï¿½ller koll pï¿½ vart bil vï¿½gen ï¿½r fï¿½r denna riktningen, 
 	private double a;
 	private double b;
 	private ArrayList emergencyList;
@@ -14,7 +14,7 @@ public class Direction  {
 		light = new Light(x, y);
 		straight = new ArrayQueue<Car>();
 		
-		//Bestämmer vilken väg det är utifrån vad väg ljusen är.
+		//Bestï¿½mmer vilken vï¿½g det ï¿½r utifrï¿½n vad vï¿½g ljusen ï¿½r.
 		if(x == 400 && y == 480){
 			a = x-30;
 			b = 800;
@@ -48,7 +48,7 @@ public class Direction  {
 		}
 		checkEmergency();*/
 	}
-	//Hämtar bilarna i queuen och ändrar på bilarnas x eller y värde beroende på vart vägen ligger.
+	//Hï¿½mtar bilarna i queuen och ï¿½ndrar pï¿½ bilarnas x eller y vï¿½rde beroende pï¿½ vart vï¿½gen ligger.
 	private void go(){
 		if(!straight.isEmpty()){
 		Iterator<Car> get = straight.iterator();
@@ -90,7 +90,7 @@ public class Direction  {
 		//Thread.sleep(1000);
 
 	}
-	//Tar emot indexen för "emergency" som en lista.
+	//Tar emot indexen fï¿½r "emergency" som en lista.
 	public void checkEmergency(){
 		
 		if(hasEmergency){
@@ -102,7 +102,7 @@ public class Direction  {
 		return hasEmergency;
 	}
 	
-	//Sätter till en ny bil till queuen.
+	//Sï¿½tter till en ny bil till queuen.
 	public void newCar(){
 		boolean type = false;
 		if(0.9<Math.random()){
@@ -113,7 +113,7 @@ public class Direction  {
 			straight.enqueue(new Car(type, new Color(255,255,255), 0, a, b));
 		}
 	}
-	//Byter ljuset utifrån förra statuset för ljuset.
+	//Byter ljuset utifrï¿½n fï¿½rra statuset fï¿½r ljuset.
 	public void shiftLight(){
 		light.changeColor();
 	}
