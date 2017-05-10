@@ -13,6 +13,18 @@ public class Junction {
 		east = new Direction(480, 400);
 		west = new Direction(320, 400);
 	}
+	private static void threadSetup(){
+		Thread northT = new Thread(north, "north");
+		Thread southT= 	new Thread(south, "south");
+		Thread westT = new Thread(west, "west");
+		Thread eastT = new Thread(east, "east");
+		
+		northT.start();
+		southT.start();
+		westT.start();
+		eastT.start();
+		System.out.println("threadsetup");
+	}
 
 	private static void setBack() {
 		StdDraw.setCanvasSize(800, 800);
@@ -25,7 +37,9 @@ public class Junction {
 		setDir();
 		setBack();
 		StdDraw.picture(400, 400, "korsning.png", 800, 800);
+		threadSetup();
 		north.shiftLight();
+		System.out.println();
 		north.shiftLight();
 		int less = 0;
 		while (true) {
@@ -36,14 +50,15 @@ public class Junction {
 				west.newCar();
 				south.newCar();
 				less = 0;
+				System.out.println("car created");
 			}
 			StdDraw.picture(400, 400, "korsning.png", 800, 800);
-			north.run();
-			south.run();
-			east.run();
-			west.run();
-			StdDraw.show();
+//			north.run();
+//			south.run();
+//			east.run();
+//			west.run();
 			less++;
+			StdDraw.show();
 		}
 	}
 }
