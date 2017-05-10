@@ -73,20 +73,34 @@ public class Light implements Runnable{
 	public boolean isYellow(){
 		return yellow;
 	}
-	/*
-	public boolean setGreen() throws InterruptedException{
+	
+	public boolean setGreen() {
 		if(red){
 			yellow = true;
 			color = new Color (255, 255, 0);
 			
-			Thread.sleep(yellowTime);
+//			Thread.sleep(yellowTime);
 			yellow = false;
 			green = true;
 			color = new Color (0, 255, 0);
 		}
 		return true;
 	}
-	*/
+	
+	public boolean setRed() {
+		if(green){
+			yellow = true;
+			color = new Color (255, 255, 0);
+			green = false;
+//			Thread.sleep(yellowTime);
+			yellow = false;
+			red = true;
+			color = new Color (255, 0, 0);
+		}
+		return true;
+	}
+	
+	
 	public boolean isRed(){
 		return red;
 	}
